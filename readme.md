@@ -30,7 +30,14 @@ If the results are of a primitive type (string, number, boolean), they are outpu
     Herman Melville
     J. R. R. Tolkien
 
-If the results are javascript objects, or if the -j option is used to force json output, then the results are output as colorised json (using util.inspect)
+    $ jsonpath $..price sample.json 
+    8.95
+    12.99
+    8.99
+    22.99
+    19.95
+
+If the results are javascript objects, or if the ````-j```` option is used to force json output, then the results are output as colorised json (using util.inspect)
 
     $ jsonpath $..author sample.json -j
     [ 'Nigel Rees',
@@ -38,7 +45,19 @@ If the results are javascript objects, or if the -j option is used to force json
       'Herman Melville',
       'J. R. R. Tolkien' ]
 
+    $ jsonpath $..book[2:] sample.json 
+    [ { category: 'fiction',
+        author: 'Herman Melville',
+        title: 'Moby Dick',
+        isbn: '0-553-21311-3',
+        price: 8.99 },
+      { category: 'fiction',
+        author: 'J. R. R. Tolkien',
+        title: 'The Lord of the Rings',
+        isbn: '0-395-19395-8',
+        price: 22.99 } ]
+
 
 ##LICENSE
 
-````MIT````
+    MIT
