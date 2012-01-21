@@ -23,5 +23,10 @@
   "optionalDependencies": {},
   "bin": {
     "jsonpath": "./jsonpath.js"
-  }
+  },
+  "keywords": [
+    "JSONPath",
+    "json",
+    "cli"
+  ]
 }
