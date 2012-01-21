@@ -1,7 +1,7 @@
 {
   "author": "cjc <cjc@cjc.id.au>",
   "name": "JSONPathCLI",
-  "description": "A cli program for running jsonpath queries",
+  "description": "A cli program for running JSONPath queries. Wrapper of s3u/JSONPath",
   "version": "0.0.2",
   "homepage": "https://github.com/cjc/JSONPathCLI",
   "repository": {
