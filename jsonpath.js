@@ -8,6 +8,7 @@ var fs = require('fs')
   , opt = require('optimist')
     .usage('Usage: $0 ' + 'query '+ '[file (optional, otherwise stdin)]')
     .boolean('j').alias('j','json').describe('j','Force json formatted output even when results are primitive values')
+    .boolean('p').alias('p','pretty').describe('p','Pretty-print json output')
     .boolean('h').alias('h','help').describe('h','Show this help')
     .boolean('c').alias('c','cheat').describe('c','Show a jsonpath cheatsheet')
   , argv = opt.argv
@@ -75,7 +76,11 @@ function queryJSONString(query, json) {
       }
     }
   } else {
-    console.log(util.inspect(results, false, null, true))
+    if (argv.p) {
+      console.log(util.inspect(results, false, null, true))
+    } else {
+      console.log(JSON.stringify(results)) 
+    }
   }
 }
 
