@@ -2,7 +2,7 @@
   "author": "cjc <cjc@cjc.id.au>",
   "name": "JSONPathCLI",
   "description": "A cli program for running jsonpath queries",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/cjc/JSONPathCLI",
   "repository": {
     "type": "git",

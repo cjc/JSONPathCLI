@@ -7,7 +7,7 @@ var fs = require('fs')
   , _ = require('underscore')
   , opt = require('optimist')
     .usage('Usage: $0 ' + 'query '+ '[file (optional, otherwise stdin)]')
-    //.boolean('t').alias('t','text').describe('t','Output results as text, one result per line')
+    .boolean('j').alias('j','json').describe('j','Force json formatted output even when results are primitive values')
     .boolean('h').alias('h','help').describe('h','Show this help')
     .boolean('c').alias('c','cheat').describe('c','Show a jsonpath cheatsheet')
   , argv = opt.argv
@@ -63,7 +63,19 @@ if (argv._.length == 0) {
 
 function queryJSONString(query, json) {
   var obj = JSON.parse(json)
-  var entries = jsonpath(obj,query)
-  console.log(util.inspect(entries, false, null, true))
+  var results = jsonpath(obj,query)
+  if (!argv.j && results.length > 0 && ['string','number','boolean'].indexOf(typeof(results[0])) >= 0) {
+    for(var i=0;i<results.length;i++) {
+      if (typeof(results[i]) == 'string') {
+        console.log(results[i].green)
+      } else if (typeof(results[i]) == 'boolean') {
+        console.log((results[i] + '')[results[i] ? 'blue' : 'red'])
+      } else {
+        console.log((results[i] + '').yellow)
+      }
+    }
+  } else {
+    console.log(util.inspect(results, false, null, true))
+  }
 }
 
