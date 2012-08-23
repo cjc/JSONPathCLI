@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/cjc/JSONPathCLI.png)](http://travis-ci.org/cjc/JSONPathCLI)
 #JSONPathCLI
 
 A cli program wrapping [JSONPath](https://github.com/s3u/JSONPath), for easily querying json data. For more information on jsonpath see [http://goessner.net/articles/JsonPath/](http://goessner.net/articles/JsonPath/)
